@@ -1,29 +1,28 @@
-<div class="container-fuid">
+<div class="container-fluid">
 
-    <div class="row bg-secondary d-flex align-items-center">
+  <div class="row bg-white d-flex align-items-center">
+    <div class="col-md-6">
 
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6 text-white">
-                <h1 class="fs=54">Seja bem vindo(a)!</h1>
-                <h5 class="fs-18">expresse aqui os seus pensamentos e opiniões!</h5>
-            </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6 text-secondary">
+          <h1 class="fs-54">Seja bem vindo(a)!</h1>
+          <h5 class="fs-18">expresse aqui os seus pensamentos e opniões!</h5>
         </div>
-
-        <div class="row d-flex justify-content-center mt-3 mb-5">
-            <div class="col-md-6">
-              <button class="btn btn-outline-light mr-3" data-toggle="modal" data-target='#novaPostagem'> Nova Postagem </button>
-              <a  class="btn btn-outline-light" href="#postagens"> Ver Postagens</a>
-
-    
-            </div>
+      </div>
+<br>
+      <div class="row d-flex justify-content-center mt-3 mb-5">
+        <div class="col-md-6">
+          <button class="btn btn-secondary mr-2" data-toggle="modal" data-target="#novaPostagem">Nova Postagem</button>
+          <a class="btn btn-outline-secondary" href="#postagens">Ver Postagens</a>
         </div>
+      </div>
 
-        <div class="col-md-6 d-flex justify-content-center">
-            <img src="../../assets/img-inicio.png" alt="Foto início" width="500px" height="500px">
-
-        </div>
     </div>
-</div>
+
+    <div class="col-md-6 d-flex justify-content-center">
+      <img src="../../assets/img-inicio.png" alt="" width="600px" height="600px">
+    </div>
+  </div>
 
 <div class="container mb-5 mt-5" id="postagens">
 
@@ -31,7 +30,7 @@
     <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as Postagens</a>
 
-      <a class="nav-item nav-link font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="minhasPostagens" aria-selected="false">Minhas Postagens</a>
+      <a class="nav-item nav-link text-secondary font-weight-bold" id="minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="minhasPostagens" aria-selected="false">Minhas Postagens</a>
 
       <a class="nav-item nav-link text-secondary font-weight-bold" id="temaPostagens-tab" data-toggle="tab" href="#temaPostagens" role="tab" aria-controls="temaPostagens" aria-selected="false">Postagens por Tema</a>
     </div>
@@ -72,7 +71,7 @@
             <label for="Texto">Escolha um tema ou <a data-dismiss="modal" routerLink="/tema">cadastre um novo</a>:
             </label>
             <select name="tema" id="tema" class="form-control">
-                <option value="">Temas</option>
+                <option *ngFor="let item of listaTemas  " value="{{item.id}}">{{item.descricao}}</option>
             </select>
         </div>
         </div>
