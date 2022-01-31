@@ -1,12 +1,13 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment.prod';
-import { Tema } from '../model/Tema';
+import { HttpClient, HttpHeaders } from "@angular/common/http"
+import { Injectable } from "@angular/core"
+import { Observable } from "rxjs"
+import { environment } from "src/environments/environment.prod"
+import { Tema } from "../model/Tema"
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class TemaService {
 
   constructor(private http: HttpClient) { }
@@ -16,22 +17,24 @@ export class TemaService {
   }
 
   getAllTema(): Observable<Tema[]>{
-    return this.http.get<Tema[]>('https://blogpessoalthiago.herokuapp.com/tema', this.token)
+    return this.http.get<Tema[]>('https://blogpessoalthiago.herokuapp.com/temas', this.token)
   }
 
   getByIdTema(id: number): Observable<Tema>{
-    return this.http.get<Tema>(`https://blogpessoalthiago.herokuapp.com/${id}`, this.token)
+    return this.http.get<Tema>(`https://blogpessoalthiago.herokuapp.com/temas/${id}`, this.token)
+
   }
 
   postTema(tema: Tema): Observable<Tema>{
-    return this.http.post<Tema>('https://blogpessoalthiago.herokuapp.com/tema', tema, this.token)
-  }
-  putTema(tema: Tema): Observable<Tema>{
-    return this.http.put<Tema>('https://blogpessoalthiago.herokuapp.com/tema', tema, this.token)
+    return this.http.post<Tema>('https://blogpessoalthiago.herokuapp.com/temas', tema, this.token)
   }
 
-  deleteTema(id: number){
-    return this.http.delete(`https://blogpessoalthiago.herokuapp.com/${id}`, this.token)
+  putTema(tema: Tema): Observable<Tema>{
+    return this.http.put<Tema>('https://blogpessoalthiago.herokuapp.com/temas', tema, this.token)
   }
-  
+
+  deleteTema(id: number) {
+    return this.http.delete(`https://blogpessoalthiago.herokuapp.com/temas/${id}`, this.token)
+  }
+
 }
